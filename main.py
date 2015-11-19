@@ -7,11 +7,12 @@ from playlists import getPlaylists
 
 # Settings
 filename = 'playlists.csv'
-today = datetime.datetime.today()
-yesterday = today - datetime.timedelta(days=1)
+endDate = datetime.datetime.today() # today
+startDate = endDate - datetime.timedelta(days=1) # yesterday
+# startDate = endDate.replace(day=1) # first day of month
 
 # Get all the songs
-playlists = getPlaylists(yesterday, today)
+playlists = getPlaylists(startDate, endDate)
 
 # Get a file writer
 csvFile = open(filename, 'wb')
